@@ -263,6 +263,10 @@ video {
   border-radius: 8px;
   z-index: 1;
 }
+.sub-container.no-image h4::after {
+  background: none;
+  display: none;
+}
 
 .image-container {
   background-color: #fffdfd;
