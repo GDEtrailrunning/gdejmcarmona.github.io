@@ -278,7 +278,7 @@ audio {
   bottom: 12px;
   width: 160px;   /* Aumenta el ancho de la imagen */
   height: 100px;  /* Aumenta el alto de la imagen */
-  background: url('2.JPG') no-repeat right bottom;
+  background: url('2.jpeg') no-repeat right bottom;
   background-size: contain;
   opacity: 0.9;
   pointer-events: none;
