@@ -5,8 +5,8 @@ document.addEventListener("DOMContentLoaded", function () {
 const dataLine1 = {
   labels: ['Día 1', 'Día 2', 'Día 3', 'Día 4'], // Etiquetas de los días
   datasets: [{
-    label: 'Km recorridos en Semana 27',
-    data: [10, 12, 4, 25], // Datos de los km recorridos en cada día
+    label: 'Km recorridos en Semana 29',
+    data: [10, 14, 11, 23], // Datos de los km recorridos en cada día
     borderColor: 'rgba(75, 192, 192, 1)',
     fill: true,
     tension: 0.1
@@ -16,12 +16,18 @@ const dataLine1 = {
 const dataLine2 = {
   labels: ['Día 1', 'Día 2', 'Día 3', 'Día 4'], // Etiquetas de los días
   datasets: [{
-    label: 'Total Km recorridos en Semana 28',
-    data: [13, 11, 14, 22],// Datos de los km recorridos en cada día
+    label: 'Total Km recorridos en Semana 30',
+    data: [10, 10, 8, 15],// Datos de los km recorridos en cada día
     borderColor: 'rgba(45, 78, 199, 1)',
     fill: true,
     tension: 0.1
   }]
+};
+
+const chartFont = {
+  family: 'Tajawal, Arial, sans-serif',
+  size: 12,
+  weight: '500'
 };
 
 // Configuración del gráfico de líneas
@@ -29,9 +35,40 @@ const configLine = {
   type: 'line',
   data: dataLine1, // Puede cambiar esto a dataLine2 para mostrar el gráfico de la segunda sección
   options: {
+    responsive: true,
+    maintainAspectRatio: false,
+    plugins: {
+      legend: {
+        labels: {
+          color: '#374151',
+          font: chartFont
+        }
+      },
+      tooltip: {
+        titleFont: chartFont,
+        bodyFont: chartFont,
+        footerFont: chartFont
+      }
+    },
     scales: {
+      x: {
+        ticks: {
+          color: '#4b5563',
+          font: chartFont
+        },
+        grid: {
+          color: 'rgba(15, 23, 42, 0.08)'
+        }
+      },
       y: {
-        beginAtZero: true
+        beginAtZero: true,
+        ticks: {
+          color: '#4b5563',
+          font: chartFont
+        },
+        grid: {
+          color: 'rgba(15, 23, 42, 0.08)'
+        }
       }
     }
   }
@@ -43,9 +80,40 @@ const myChartLine2 = new Chart(document.getElementById('myChart-line-2'), {
   type: 'line',
   data: dataLine2,
   options: {
+    responsive: true,
+    maintainAspectRatio: false,
+    plugins: {
+      legend: {
+        labels: {
+          color: '#374151',
+          font: chartFont
+        }
+      },
+      tooltip: {
+        titleFont: chartFont,
+        bodyFont: chartFont,
+        footerFont: chartFont
+      }
+    },
     scales: {
+      x: {
+        ticks: {
+          color: '#4b5563',
+          font: chartFont
+        },
+        grid: {
+          color: 'rgba(15, 23, 42, 0.08)'
+        }
+      },
       y: {
-        beginAtZero: true
+        beginAtZero: true,
+        ticks: {
+          color: '#4b5563',
+          font: chartFont
+        },
+        grid: {
+          color: 'rgba(15, 23, 42, 0.08)'
+        }
       }
     }
   }
