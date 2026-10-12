@@ -1,9 +1,8 @@
 document.addEventListener("DOMContentLoaded", function () {
   //actualizarDiasRestantes();
   //setInterval(actualizarDiasRestantes, 24*60*60*1000); // Actualizar diario
-  //Datos para el gráfico de líneas
 
- const chartFontFamily = '"Tajawal", Arial, sans-serif';
+  const chartFontFamily = '"Tajawal", Arial, sans-serif';
   const sharedChartOptions = {
     responsive: true,
     maintainAspectRatio: false,
@@ -93,59 +92,48 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     }
   };
-const dataLine1 = {
-  labels: ['Día 1', 'Día 2', 'Día 3', 'Día 4'], // Etiquetas de los días
-  datasets: [{
-    label: 'Km recorridos en Semana 38',
-    data: [12, 12, 10, 24], // Datos de los km recorridos en cada día
-    borderColor: 'rgba(75, 192, 192, 1)',
-    fill: true,
-    tension: 0.1
-  }]
-};
 
-const dataLine2 = {
-  labels: ['Día 1', 'Día 2', 'Día 3', 'Día 4'], // Etiquetas de los días
-  datasets: [{
-    label: 'Km recorridos en Semana 39',
-    data: [11, 14, 11, 25], // Datos de los km recorridos en cada día
-    borderColor: 'rgba(153, 102, 255, 1)',
-    fill: true,
-    tension: 0.1
-  }]
-};
+  //Datos para el gráfico de líneas
+  const dataLine1 = {
+    labels: ['Día 1', 'Día 2', 'Día 3', 'Día 4', 'Día 5'], // Etiquetas de los días], // Etiquetas de los días
+    datasets: [{
+      label: 'Km recorridos en Semana 38',
+      data: [12, 12, 10, 24], // Datos de los km recorridos en cada día
+      borderColor: 'rgba(45, 74, 62, 1)',
+      backgroundColor: 'rgba(45, 74, 62, 0.16)',
+      fill: true
+    }]
+  };
 
-// Configuración del gráfico de líneas
+  const dataLine2 = {
+    labels: ['Día 1', 'Día 2', 'Día 3', 'Día 4'], // Etiquetas de los días
+    datasets: [{
+      label: 'Total Km recorridos en Semana 39',
+      data: [11, 14, 11, 25],// Datos de los km recorridos en cada día
+      borderColor: 'rgba(45, 78, 199, 1)',
+      backgroundColor: 'rgba(45, 78, 199, 0.14)',
+      fill: true
+    }]
+  };
 
+  // Configuración del gráfico de líneas
+  const configLine = {
+    type: 'line',
+    data: dataLine1,
+    options: sharedChartOptions
+  };
 
-// Seleccione los contextos de los <canvas> y cree los gráficos
-const myChartLine1 = new Chart(document.getElementById('myChart-line-1'), {
-  type: 'line',
-  data: dataLine1, // Puede cambiar esto a dataLine2 para mostrar el gráfico de la segunda sección
-  options: {
-    scales: {
-      y: {
-        beginAtZero: true
-      }
-    }
-  }
-});
-
- const myChartLine2 = new Chart(document.getElementById('myChart-line-2'), {
-  type: 'line',
-  data: dataLine2,
-  options: {
-    scales: {
-      y: {
-        beginAtZero: true
-      }
-    }
-  }
-});
+  // Seleccione los contextos de los <canvas> y cree los gráficos
+  new Chart(document.getElementById('myChart-line-1'), configLine);
+  new Chart(document.getElementById('myChart-line-2'), {
+    type: 'line',
+    data: dataLine2,
+    options: sharedChartOptions
+  });
 
 function actualizarDiasRestantes() {
   // Fecha objetivo fija
-  const objetivoDate = new Date('2026-05-17');
+  const objetivoDate = new Date('2026-10-11');
   const currentDate = new Date();
   const timeDiff = objetivoDate - currentDate;
   const days = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
